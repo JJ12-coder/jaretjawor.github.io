@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaret Jawor | Portfolio</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: #4b5563;
+      --accent: #1d4ed8;
+      --accent-2: #0f172a;
+      --border: #dbe3ee;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --max-width: 1100px;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(8px);
+      background: rgba(247, 249, 252, 0.9);
+      border-bottom: 1px solid rgba(219, 227, 238, 0.9);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(29, 78, 216, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(29, 78, 216, 0.15);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin-bottom: 28px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--accent-2);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .quick-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-card,
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 18px;
+    }
+
+    .hero-photo {
+      aspect-ratio: 4 / 5;
+      width: 100%;
+      object-fit: cover;
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 760px;
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #1e3a8a;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .resume-box {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-item {
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      padding: 40px 0 56px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        gap: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">Jaret Jawor</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#athletics">Lacrosse</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="tag">Cybersecurity • Data Science + AI • Division I Athlete</div>
+        <h1>Building a career through discipline, competition, and technical growth.</h1>
+        <p>
+          I am Jaret Jawor, a Mercyhurst University student studying Cybersecurity and Data Science + AI.
+          I combine the work ethic of a college athlete with a growing technical foundation in cybersecurity,
+          problem-solving, and digital tools. My goal is to continue building real-world skills that create value
+          for teams, organizations, and future employers.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#projects">View My Work</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me</a>
+        </div>
+        <div class="quick-links">
+          <span>Mercyhurst University</span>
+          <span>•</span>
+          <span>Cybersecurity</span>
+          <span>•</span>
+          <span>Data Science + AI</span>
+          <span>•</span>
+          <span>College Lacrosse</span>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img class="hero-photo" src="your-photo.jpg" alt="Photo of Jaret Jawor" />
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+          I am focused on building a strong career foundation through academics, athletics, and continuous skill development.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Who I Am</h3>
+            <p>
+              I am a student-athlete at Mercyhurst University with a professional mindset and a strong interest in cybersecurity,
+              data, and personal growth. I take pride in being disciplined, coachable, and dependable in everything I do.
+            </p>
+          </div>
+          <div class="card">
+            <h3>What I Bring</h3>
+            <p>
+              My background in college athletics has helped me develop leadership, resilience, time management, and the ability
+              to perform under pressure. I bring that same energy into the classroom and into every technical skill I work to build.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">
+          My academic path is centered around technology, security, and building a broad skill set for future opportunities.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Mercyhurst University</h3>
+            <p>
+              Studying <strong>Cybersecurity</strong> and <strong>Data Science + AI</strong> while competing as a college athlete.
+              My coursework and training continue to strengthen both my analytical mindset and my ability to solve problems in fast-paced environments.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Academic Focus</h3>
+            <ul>
+              <li>Cybersecurity fundamentals</li>
+              <li>Networking and system tools</li>
+              <li>Data analysis and problem-solving</li>
+              <li>Technical communication and professional growth</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">
+          These are the areas I am actively building and improving as I prepare for internships, jobs, and future technical work.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Cybersecurity</h3>
+            <div class="skills-list">
+              <span class="pill">Nmap</span>
+              <span class="pill">Kali Linux</span>
+              <span class="pill">DNS Lookup</span>
+              <span class="pill">WHOIS</span>
+              <span class="pill">Recon Fundamentals</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Technical Tools</h3>
+            <div class="skills-list">
+              <span class="pill">GitHub</span>
+              <span class="pill">VS Code</span>
+              <span class="pill">Power BI</span>
+              <span class="pill">Google Docs</span>
+              <span class="pill">Microsoft Office</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Strengths</h3>
+            <div class="skills-list">
+              <span class="pill">Discipline</span>
+              <span class="pill">Leadership</span>
+              <span class="pill">Work Ethic</span>
+              <span class="pill">Time Management</span>
+              <span class="pill">Coachability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="athletics">
+      <div class="container">
+        <h2 class="section-title">College Lacrosse</h2>
+        <p class="section-subtitle">
+          Athletics has shaped how I work, lead, and compete. It is a major part of what makes me effective in both school and career settings.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Division I Athlete Mindset</h3>
+            <p>
+              Being a college lacrosse player has taught me how to stay consistent, handle pressure, and compete every day.
+              Those same traits carry directly into academics, technical learning, and professional development.
+            </p>
+          </div>
+          <div class="card">
+            <h3>What Athletics Built in Me</h3>
+            <ul>
+              <li>Consistency in daily habits</li>
+              <li>Accountability to a team</li>
+              <li>Strong communication</li>
+              <li>Composure in high-pressure moments</li>
+              <li>Drive to improve over time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">
+          I am continuing to add to this section as I build more experience. Right now, this website and my cybersecurity work are the start.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Nmap Demonstration Project</h3>
+            <p>
+              Presented how to install and use Nmap in Kali Linux, demonstrated scanning techniques, and explained how Nmap can support penetration testing and network reconnaissance.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Personal Portfolio Website</h3>
+            <p>
+              Built a professional website to present my background, interests, and growing technical skills. This site is designed to help employers, coaches, and connections understand who I am and what I bring.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="container">
+        <h2 class="section-title">Resume</h2>
+        <p class="section-subtitle">
+          My resume includes my academic background, experience, skills, and current focus areas.
+        </p>
+        <div class="card resume-box">
+          <div>
+            <h3>Download My Resume</h3>
+            <p>Replace the file below with your own PDF resume before publishing the site.</p>
+          </div>
+          <a class="btn btn-primary" href="resume(3).pdf" target="_blank">Download Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">
+          The best way to reach me is through email or through my professional profiles.
+        </p>
+        <div class="contact-links">
+          <a class="contact-item" href="jjawor68@lakers.mercyhurst.edu">
+            <strong>Email</strong>
+            <span>jjawor68@lakers.mercyhurst.edu</span>
+          </a>
+          <a class="contact-item" href="https://www.linkedin.com/in/your-linkedin" target="_blank">
+            <strong>LinkedIn</strong>
+            <span>Replace with your LinkedIn profile link</span>
+          </a>
+          <a class="contact-item" href="https://github.com/your-github" target="_blank">
+            <strong>GitHub</strong>
+            <span>Replace with your GitHub profile link</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Jaret Jawor. Built to showcase my background, skills, and growth.</p>
+    </div>
+  </footer>
+</body>
+</html>
